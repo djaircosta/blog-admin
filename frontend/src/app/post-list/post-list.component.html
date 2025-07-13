@@ -1,0 +1,14 @@
+<h2>Lista de Posts</h2>
+
+<ul *ngIf="posts.length > 0; else noPosts">
+    <li *ngFor="let post of posts">
+        <h3>{{ post.title }}</h3>
+        <p><strong>Autor:</strong> {{ post.author }}</p>
+        <p>{{ post.content }}</p>
+        <p><small>Criado em: {{ post.createdAt | date:'short' }}</small></p>
+    </li>
+</ul>
+
+<ng-template #noPosts>
+    <p>Nenhum post encontrado.</p>
+</ng-template>
